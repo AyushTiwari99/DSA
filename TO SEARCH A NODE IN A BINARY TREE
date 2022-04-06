@@ -1,0 +1,35 @@
+public class Tree_Search {
+    static class Node
+    {
+        int data;
+        Node left,right;
+        Node(int data)
+        {
+            this.data=data;
+            left=right=null;
+        }
+    }
+    static boolean nodeexist(Node node,int key)
+    {
+        if(node==null)
+        {
+            return false;
+        }
+        else if(node.data==key)
+        {
+            return true;
+        }
+        return nodeexist(node.left,key) || nodeexist(node.right,key);
+    }
+    public static void main(String[] args) {
+        Node node = new Node(9);
+        node.left=new Node(1);
+        node.left.right = new Node(2);
+        node.left.left=new Node(0);
+        node.right=new Node(17);
+        node.right.left=new Node(15);
+        node.right.right=new Node(20);
+        int key =1;
+        System.out.println(nodeexist(node,key));
+    }
+}
